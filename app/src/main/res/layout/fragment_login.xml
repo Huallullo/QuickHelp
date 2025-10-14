@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0A0F"
+    android:fillViewport="true"
+    tools:context=".ui.login.LoginFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="32dp">
+
+        <!-- Logo y título -->
+        <ImageView
+            android:id="@+id/imgLogo"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/logo"
+            android:contentDescription="Logo"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SafeWalk Login"
+            android:textColor="#BB86FC"
+            android:textSize="26sp"
+            android:fontFamily="serif"
+            android:layout_marginBottom="32dp" />
+
+        <!-- Campo de email -->
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/ic_email"
+            android:hint="Correo electrónico"
+            android:inputType="textEmailAddress"
+            android:padding="16dp"
+            android:textColorHint="#888"
+            android:textColor="#FFF"
+            android:layout_marginBottom="20dp" />
+
+        <!-- Campo de contraseña -->
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/ic_contra"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:padding="16dp"
+            android:textColorHint="#888"
+            android:textColor="#FFF"
+            android:layout_marginBottom="28dp" />
+
+        <!-- Botón de login -->
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:text="INICIAR SESIÓN"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:textColor="#FFF"
+            android:fontFamily="serif"
+            android:backgroundTint="#8A2BE2"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Botón de Google -->
+        <Button
+            android:id="@+id/btnGoogle"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Continuar con Google"
+            android:textAllCaps="false"
+            android:textColor="#000"
+            android:backgroundTint="#FFF"
+            android:layout_marginBottom="24dp"
+            android:drawableStart="@drawable/ic_google"
+            android:drawablePadding="10dp" />
+
+        <!-- Link para registrarse -->
+        <TextView
+            android:id="@+id/tvRegister"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿No tienes cuenta? Regístrate"
+            android:textColor="#BB86FC"
+            android:textSize="14sp"
+            android:fontFamily="serif"
+            android:layout_marginTop="10dp" />
+    </LinearLayout>
+</ScrollView>

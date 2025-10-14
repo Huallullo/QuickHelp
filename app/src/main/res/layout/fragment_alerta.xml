@@ -1,0 +1,18 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#1B1B2F"
+    android:gravity="center">
+
+    <Button
+        android:id="@+id/btn_enviar_alerta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🚨 Enviar Alerta"
+        android:backgroundTint="@color/purple_500"
+        android:textColor="@android:color/white"
+        android:layout_margin="16dp"
+        android:padding="12dp"
+        android:layout_gravity="center_horizontal" />
+
+</RelativeLayout>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "418426529115",
+    "project_id": "quickhelp-8d2b2",
+    "storage_bucket": "quickhelp-8d2b2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418426529115:android:b04a2185ac280a0a27a67e",
+        "android_client_info": {
+          "package_name": "com.example.quickhelp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "418426529115-buqpffp4cu2frbru0d6m93llmlfvv3n2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA14xDJcdlMuMrB0sSB2uQT9TfHpVimtgw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "418426529115-buqpffp4cu2frbru0d6m93llmlfvv3n2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

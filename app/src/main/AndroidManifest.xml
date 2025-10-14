@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.quickhelp">
+
+    <!--  Permisos de ubicación (para mostrar la posición del usuario en el mapa) -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!--  Permisos de red (para usar API, Firebase y mapa en línea) -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!--  Permiso para recibir notificaciones push (Firebase Cloud Messaging) -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <!--  Permiso opcional para mostrar mapa en segundo plano (si lo necesitas después) -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:name=".QuickHelpApp"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.QuickHelp"
+        tools:targetApi="34">
+
+        <!--  Biblioteca para compatibilidad con redes (OSMDroid) -->
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <!-- ✅ AuthActivity - PANTALLA DE LOGIN (LAUNCHER) -->
+        <activity
+            android:name=".AuthActivity"
+            android:exported="true"
+            android:theme="@style/Theme.QuickHelp">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!--  MainActivity - Ya no es LAUNCHER, se abre desde AuthActivity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.QuickHelp" />
+
+        <!-- Servicio de Firebase Messaging -->
+        <service
+            android:name=".services.AlertService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <!-- 🔥 Inicialización de Firebase -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@mipmap/ic_launcher" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/purple_500" />
+
+    </application>
+
+</manifest>
