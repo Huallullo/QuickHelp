@@ -28,7 +28,7 @@
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SafeWalk Login"
+            android:text=" Login"
             android:textColor="#BB86FC"
             android:textSize="26sp"
             android:fontFamily="serif"
@@ -88,7 +88,7 @@
 
         <!-- Link para registrarse -->
         <TextView
-            android:id="@+id/tvRegister"
+            android:id="@+id/btnGoToRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="¿No tienes cuenta? Regístrate"
