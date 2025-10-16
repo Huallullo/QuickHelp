@@ -5,47 +5,54 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.quickhelp.AuthActivity
+import androidx.navigation.fragment.findNavController
+import com.example.quickhelp.R
 import com.example.quickhelp.databinding.FragmentPerfilBinding
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.firestore.FirebaseFirestore
 
 class PerfilFragment : Fragment() {
 
     private var _binding: FragmentPerfilBinding? = null
     private val binding get() = _binding!!
-    private val auth = FirebaseAuth.getInstance()
-    private val db = FirebaseFirestore.getInstance()
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentPerfilBinding.inflate(inflater, container, false)
+        auth = FirebaseAuth.getInstance()
 
-        loadUserData()
-
-        binding.btnLogout.setOnClickListener {
-            auth.signOut()
-            val intent = Intent(requireContext(), AuthActivity::class.java)
-            startActivity(intent)
-            requireActivity().finish()
-        }
+        setupUserInfo()
+        setupClickListeners()
 
         return binding.root
     }
 
-    private fun loadUserData() {
-        val userId = auth.currentUser?.uid ?: return
+    private fun setupUserInfo() {
+        val user = auth.currentUser
+        user?.let {
+            binding.tvUserName.text = it.displayName ?: "Usuario"
+            binding.tvUserEmail.text = it.email ?: "No email"
+        }
+    }
 
-        db.collection("users").document(userId).get()
-            .addOnSuccessListener { document ->
-                if (document.exists()) {
-                    binding.tvUserName.text = document.getString("name") ?: "Usuario"
-                    binding.tvUserEmail.text = document.getString("email") ?: ""
-                }
-            }
+    private fun setupClickListeners() {
+        binding.btnLogout.setOnClickListener {
+            logoutUser()
+        }
+
+        // Agrega otros listeners según necesites
+    }
+
+    private fun logoutUser() {
+        auth.signOut()
+        Toast.makeText(requireContext(), "Sesión cerrada", Toast.LENGTH_SHORT).show()
+
+        // Navegar al login fragment
+        findNavController().navigate(R.id.loginFragment)
     }
 
     override fun onDestroyView() {
