@@ -46,8 +46,8 @@ class PerfilFragment : Fragment() {
             binding.tvUserEmail.text = it.email ?: "No especificado"
             binding.tvUserId.text = it.uid.take(8) + "..." // Mostrar solo parte del ID
 
-            // Estadísticas (puedes personalizar estos datos)
-            binding.tvAlertsCount.text = "12" // Ejemplo
+            // Estadísticas
+            binding.tvAlertsCount.text = "12"
             binding.tvTrustLevel.text = "95%"
 
             // Fecha de creación de la cuenta
@@ -79,7 +79,7 @@ class PerfilFragment : Fragment() {
                 }
             }
             .addOnFailureListener {
-                // Silencioso, usar valores por defecto
+
             }
     }
 
@@ -88,7 +88,7 @@ class PerfilFragment : Fragment() {
             logoutUser()
         }
 
-        // Puedes agregar más listeners para otras opciones
+
         binding.switchNotifications.setOnCheckedChangeListener { _, isChecked ->
             Toast.makeText(
                 requireContext(),

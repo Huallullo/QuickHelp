@@ -33,7 +33,7 @@ class AlertaFragment : Fragment() {
         if (fineGranted || coarseGranted) {
             obtenerUbicacionYEnviar()
         } else {
-            Snackbar.make(requireView(), "❌ Se requieren permisos de ubicación", Snackbar.LENGTH_LONG).show()
+            Snackbar.make(requireView(), " Se requieren permisos de ubicación", Snackbar.LENGTH_LONG).show()
         }
     }
 
@@ -77,7 +77,7 @@ class AlertaFragment : Fragment() {
                 Snackbar.make(requireView(), "⚠️ No se pudo obtener la ubicación actual", Snackbar.LENGTH_LONG).show()
             }
         }.addOnFailureListener { e ->
-            Snackbar.make(requireView(), "❌ Error al obtener ubicación: ${e.message}", Snackbar.LENGTH_LONG).show()
+            Snackbar.make(requireView(), " Error al obtener ubicación: ${e.message}", Snackbar.LENGTH_LONG).show()
         }
     }
 
@@ -95,7 +95,7 @@ class AlertaFragment : Fragment() {
 
                 Snackbar.make(requireView(), "✅ Alerta enviada con ubicación actual", Snackbar.LENGTH_LONG).show()
             } catch (e: Exception) {
-                Snackbar.make(requireView(), "❌ Error: ${e.message}", Snackbar.LENGTH_LONG).show()
+                Snackbar.make(requireView(), "Error: ${e.message}", Snackbar.LENGTH_LONG).show()
             } finally {
                 binding.btnEnviarAlerta.isEnabled = true
             }
